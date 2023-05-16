@@ -1,12 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:newsapp/Presentation/modules/Layout/cubit/cubit.dart';
+import 'package:newsapp/Presentation/widgets/loading/skelton.dart';
 import 'package:newsapp/Presentation/modules/web_view/web_view.dart';
 import 'package:newsapp/utils/components/components.dart';
 
 class BuildArticalItem extends StatelessWidget {
-  dynamic artical;
-  int index;
+  final dynamic artical;
+  final int index;
 
   BuildArticalItem({super.key, required this.artical, required this.index});
 
@@ -38,18 +40,18 @@ class BuildArticalItem extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: 180.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0.0),
-                      image: artical['urlToImage'] != null
-                          ? DecorationImage(
-                              fit: BoxFit.cover,
-                              image: (NetworkImage(
-                                "${artical['urlToImage']}",
-                              )))
-                          : const DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  "https://www.euractiv.com/wp-content/uploads/sites/2/2022/05/shutterstock_1935009710-scaled.jpg"))),
+                  child: CachedNetworkImage(
+                    imageUrl: artical['urlToImage'] != null
+                        ? artical['urlToImage']
+                        : "https://www.euractiv.com/wp-content/uploads/sites/2/2022/05/shutterstock_1935009710-scaled.jpg",
+                    placeholder: (context, url) => Center(
+                        child: Skeleton(
+                      height: 180,
+                      width: double.infinity,
+                    )),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(
                   height: 5.0,
@@ -59,8 +61,6 @@ class BuildArticalItem extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "${artical['title']}",

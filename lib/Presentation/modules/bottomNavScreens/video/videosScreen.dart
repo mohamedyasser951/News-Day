@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newsapp/Presentation/widgets/loading/skelton.dart';
 import 'package:newsapp/config/app_local.dart';
 import 'package:newsapp/Domain/models/videoModel.dart';
 import 'package:newsapp/Presentation/modules/Layout/cubit/cubit.dart';
@@ -86,11 +88,17 @@ class VideoArticalItem extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     height: 180.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(0.0),
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(model.thumpnail!))),
+                    child: CachedNetworkImage(
+                      imageUrl: model.thumpnail!,
+                      placeholder: (context, url) => Skeleton(
+                        height: 180.0,
+                        width: double.infinity,
+                      ),
+                      errorWidget: (context, url, error) => Center(
+                        child: Icon(Icons.error),
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Icon(
                     Icons.play_circle_outline,

@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:newsapp/Presentation/modules/Layout/cubit/cubit.dart';
+import 'package:newsapp/Presentation/widgets/loading/skelton.dart';
 import 'package:newsapp/Presentation/modules/web_view/web_view.dart';
 import 'package:newsapp/utils/components/components.dart';
 
@@ -38,18 +40,18 @@ class SmallArticalItem extends StatelessWidget {
                 Container(
                   width: 120,
                   height: 120,
-                  decoration: BoxDecoration(
-                      //borderRadius: BorderRadius.circular(0.0),
-                      image: artical['urlToImage'] != null
-                          ? DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                "${artical['urlToImage']}",
-                              ))
-                          : const DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  "https://us.123rf.com/450wm/wnaoki/wnaoki1803/wnaoki180301266/wnaoki180301266.jpg?ver=6"))),
+                  child: CachedNetworkImage(
+                    imageUrl: artical['urlToImage'] != null
+                        ? artical['urlToImage']
+                        : "https://us.123rf.com/450wm/wnaoki/wnaoki1803/wnaoki180301266/wnaoki180301266.jpg?ver=6",
+                    placeholder: (context, url) => Center(
+                        child: Skeleton(
+                      height: 120,
+                      width: 120,
+                    )),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(
                   width: 8.0,

@@ -1,4 +1,5 @@
 import 'dart:io';
+// Import the generated file
 import 'package:desktop_window/desktop_window.dart';
 import 'package:firebase_core/firebase_core.dart';
 import "package:flutter/material.dart";
@@ -13,6 +14,7 @@ import 'package:newsapp/Presentation/modules/Layout/news_layout.dart';
 import 'package:newsapp/Presentation/modules/on_boarding/on_boarding.dart';
 import 'package:newsapp/config/app_local.dart';
 import 'package:newsapp/config/themes.dart';
+import 'package:newsapp/firebase_option.dart';
 import 'package:newsapp/utils/constants/constants.dart';
 import 'package:newsapp/Data/Data%20Source/local/sheredpref_helper.dart';
 import 'package:newsapp/Data/Data%20Source/remote/dio_helper.dart';
@@ -21,16 +23,16 @@ import 'utils/components/block_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   DioHelper.init();
   await SharedHelper.init();
 
   bool? isDarkformShared = SharedHelper.getData("isDark");
   bool? onboarding = SharedHelper.getData("onBoarding");
-
   currentLocalApp = SharedHelper.getData("lang") ?? "us";
   Token = SharedHelper.getData("token");
-  print("isDark From Shared ${isDarkformShared}");
   Widget startWidget;
 
   if (onboarding != null) {
@@ -63,8 +65,6 @@ class app extends StatefulWidget {
 class _appState extends State<app> {
   @override
   void initState() {
-//  SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
-
     super.initState();
   }
 

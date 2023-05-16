@@ -1,7 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/Presentation/modules/loading/shimmerLoading.dart';
-import 'package:newsapp/Presentation/modules/loading/skelton.dart';
+import 'package:newsapp/Presentation/widgets/loading/shimmerLoading.dart';
+import 'package:newsapp/Presentation/widgets/loading/skelton.dart';
 import 'package:newsapp/Presentation/widgets/ArticalItem.dart';
 import 'package:newsapp/Presentation/widgets/smallArticalItem.dart';
 import 'package:newsapp/config/app_local.dart';
