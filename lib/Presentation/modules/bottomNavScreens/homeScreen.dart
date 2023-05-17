@@ -13,7 +13,7 @@ import 'package:newsapp/Presentation/modules/drawer/drawer.dart';
 import 'package:newsapp/Presentation/modules/search/search.dart';
 import 'package:newsapp/config/app_local.dart';
 import 'package:newsapp/utils/components/components.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

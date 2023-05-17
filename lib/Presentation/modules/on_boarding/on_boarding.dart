@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/Presentation/modules/Authentication/login/social_login.dart';
 import 'package:newsapp/utils/components/components.dart';
 import 'package:newsapp/Data/Data%20Source/local/sheredpref_helper.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingModel {

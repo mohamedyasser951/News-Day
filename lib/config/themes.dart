@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:newsapp/utils/constants/constants.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 
 class Themes {
   static ThemeData darkTheme = ThemeData(

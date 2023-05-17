@@ -4,7 +4,7 @@ import 'package:newsapp/Presentation/modules/Layout/cubit/cubit.dart';
 import 'package:newsapp/Presentation/modules/Layout/cubit/states.dart';
 import 'package:newsapp/config/app_local.dart';
 import 'package:newsapp/utils/components/components.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 import 'package:newsapp/Presentation/widgets/cutomizedlistTile.dart';
 
 class ProfileScreen extends StatelessWidget {

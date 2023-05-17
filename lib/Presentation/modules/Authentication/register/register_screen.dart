@@ -13,7 +13,7 @@ import 'package:newsapp/Presentation/modules/Layout/news_layout.dart';
 import 'package:newsapp/utils/components/components.dart';
 import 'package:newsapp/utils/constants/constants.dart';
 import 'package:newsapp/Data/Data%20Source/local/sheredpref_helper.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});

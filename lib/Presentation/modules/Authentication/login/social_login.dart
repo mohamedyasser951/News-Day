@@ -7,7 +7,7 @@ import 'package:newsapp/Presentation/modules/Authentication/login/login_screen.d
 import 'package:newsapp/Presentation/modules/on_boarding/on_boarding.dart';
 
 import 'package:newsapp/utils/components/components.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 
 class SocialLogin extends StatelessWidget {
   const SocialLogin({super.key});

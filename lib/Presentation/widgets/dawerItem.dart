@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 
 class DrawerItem extends StatelessWidget {
   IconData iconData;

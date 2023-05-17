@@ -10,7 +10,7 @@ import 'package:newsapp/Presentation/widgets/loading/skelton.dart';
 import 'package:newsapp/Presentation/modules/web_view/web_view.dart';
 import 'package:newsapp/config/app_local.dart';
 import 'package:newsapp/utils/components/components.dart';
-import 'package:newsapp/utils/styles/colors.dart';
+import 'package:newsapp/utils/app_colors.dart';
 import 'package:newsapp/Presentation/widgets/ArticaleBuilder.dart';
 
 class ExploreScreen extends StatelessWidget {

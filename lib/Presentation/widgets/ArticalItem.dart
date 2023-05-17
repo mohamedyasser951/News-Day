@@ -49,7 +49,7 @@ class BuildArticalItem extends StatelessWidget {
                       height: 180,
                       width: double.infinity,
                     )),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) => Icon(Icons.error,color: Theme.of(context).iconTheme.color,),
                     fit: BoxFit.cover,
                   ),
                 ),
