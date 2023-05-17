@@ -32,110 +32,14 @@ class HomeScreen extends StatelessWidget {
     return BlocConsumer<AppNewsCubit, AppNewsStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        AppNewsCubit cubit = AppNewsCubit.get(context);
         return DefaultTabController(
           length: tabs.length,
           child: Scaffold(
             key: scaffoldState,
             drawer: const MyDrawer(),
-            appBar: AppBar(
-              
-              leading: IconButton(
-                icon: const Icon(EvaIcons.menu2Outline),
-                onPressed: () {
-                  scaffoldState.currentState?.openDrawer();
-                },
-              ),
-               
-              bottom: TabBar(
-                isScrollable: true,
-                indicatorColor: primColor,
-                indicatorSize: TabBarIndicatorSize.label,
-                tabs: tabs,
-              ),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                textDirection: TextDirection.ltr,
-                children: const [
-                  Text(
-                    "News",
-                  ),
-                  Text(
-                    "Day",
-                    style: TextStyle(color: Colors.orange),
-                  ),
-                ],
-              ),
-              actions: [
-                IconButton(
-                    onPressed: () {
-                      buildGoTo(context: context, widget: SearchScreen());
-                    },
-                    icon: const Icon(Icons.search)),
-
-                Material(
-                  color: Theme.of(context).backgroundColor,
-                  child: PopupMenuButton<int>(
-                    
-                      itemBuilder: (context) {
-                        return [
-                          PopupMenuItem(
-                            child: Text(
-                              getLang(context, "country"),
-                              style: Theme.of(context).textTheme.bodyText2,
-                            ),
-                            value: 2,
-                          ),
-                        ];
-                      },
-                      onSelected: (selected) => showMenu(
-                            color: Theme.of(context).backgroundColor,
-                            context: context,
-                            position: RelativeRect.fromLTRB(25, 25.0, 0, 0),
-                            items: [
-                              PopupMenuItem(
-                                value: 1,
-                                child: Text(
-                                  getLang(context, "egypt"),
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                ),
-                              ),
-                              PopupMenuItem(
-                                value: 2,
-                                child: Text(
-                                  getLang(context, "us"),
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                ),
-                              ),
-                              PopupMenuItem(
-                                value: 3,
-                                child: Text(
-                                  getLang(context, "germany"),
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                ),
-                              ),
-                              PopupMenuItem(
-                                value: 4,
-                                child: Text(
-                                  getLang(context, "france"),
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                ),
-                              ),
-                            ],
-                          ).then((value) {
-                            if (value == 1) {
-                              cubit.changeCountry('eg');
-                            } else if (value == 2) {
-                              cubit.changeCountry("us");
-                            } else if (value == 3) {
-                              cubit.changeCountry("gr");
-                            } else if (value == 4) {
-                              cubit.changeCountry("fr");
-                            }
-                          })),
-                ),
-              ],
-            ),
+            appBar: PreferredSize(
+                preferredSize: Size.fromHeight(80),
+                child: HomeAppBar(scaffoldState: scaffoldState, tabs: tabs)),
             body: TabBarView(children: [
               ExploreScreen(),
               const EntertainmenrScreen(),
@@ -147,6 +51,117 @@ class HomeScreen extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class HomeAppBar extends StatelessWidget {
+  const HomeAppBar({
+    super.key,
+    required this.scaffoldState,
+    required this.tabs,
+  });
+
+  final GlobalKey<ScaffoldState> scaffoldState;
+  final List<Widget> tabs;
+
+  @override
+  Widget build(BuildContext context) {
+    AppNewsCubit cubit = AppNewsCubit.get(context);
+
+    return AppBar(
+      leading: IconButton(
+        icon: const Icon(EvaIcons.menu2Outline),
+        onPressed: () {
+          scaffoldState.currentState?.openDrawer();
+        },
+      ),
+      bottom: TabBar(
+        isScrollable: true,
+        indicatorColor: primColor,
+        indicatorSize: TabBarIndicatorSize.label,
+        tabs: tabs,
+      ),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        textDirection: TextDirection.ltr,
+        children: const [
+          Text(
+            "News",
+          ),
+          Text(
+            "Day",
+            style: TextStyle(color: Colors.orange),
+          ),
+        ],
+      ),
+      actions: [
+        IconButton(
+            onPressed: () {
+              buildGoTo(context: context, widget: SearchScreen());
+            },
+            icon: const Icon(Icons.search)),
+        Material(
+          color: Theme.of(context).backgroundColor,
+          child: PopupMenuButton<int>(
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    child: Text(
+                      getLang(context, "country"),
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    value: 2,
+                  ),
+                ];
+              },
+              onSelected: (selected) => showMenu(
+                    color: Theme.of(context).backgroundColor,
+                    context: context,
+                    position: RelativeRect.fromLTRB(25, 25.0, 0, 0),
+                    items: [
+                      PopupMenuItem(
+                        value: 1,
+                        child: Text(
+                          getLang(context, "egypt"),
+                          style: Theme.of(context).textTheme.bodyText2,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 2,
+                        child: Text(
+                          getLang(context, "us"),
+                          style: Theme.of(context).textTheme.bodyText2,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 3,
+                        child: Text(
+                          getLang(context, "germany"),
+                          style: Theme.of(context).textTheme.bodyText2,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 4,
+                        child: Text(
+                          getLang(context, "france"),
+                          style: Theme.of(context).textTheme.bodyText2,
+                        ),
+                      ),
+                    ],
+                  ).then((value) {
+                    if (value == 1) {
+                      cubit.changeCountry('eg');
+                    } else if (value == 2) {
+                      cubit.changeCountry("us");
+                    } else if (value == 3) {
+                      cubit.changeCountry("gr");
+                    } else if (value == 4) {
+                      cubit.changeCountry("fr");
+                    }
+                  })),
+        ),
+      ],
     );
   }
 }
