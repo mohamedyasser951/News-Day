@@ -10,7 +10,7 @@ News Day App with two languages to get News for different Couuntries :
   
 Images from The Application :
 
-![Group 6](https://github.com/mohamedyasser951/News-Day/assets/101422982/6d1bb2f7-a6d3-47aa-a06c-76af7ded2569)
+![Group 6](https://github.com/mohamedyasser951/News-Day/assets/101422982/82d08fbe-1a90-4d51-a3c1-9234ca19b271)
 
+![Group 5](https://github.com/mohamedyasser951/News-Day/assets/101422982/aabb7d0e-159a-4212-831a-e8f4bc8f8495)
 
-![Group 5](https://github.com/mohamedyasser951/News-Day/assets/101422982/e7c0ae3b-604b-4459-bc8e-5d1048bfc6cd)
