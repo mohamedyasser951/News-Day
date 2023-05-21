@@ -1,13 +1,13 @@
-News Hour App with two languages to get News for different Couuntries :
+News Day App with two languages to get News for different Couuntries :
 
-- Support English and Arabic languages
-- support Dark, Light mode
-- check Internet connection
-- Get various News for different Countries including Sports, Science, General and so on
-- Responsive for Mobiles.
-- Images from The Application :
+ - This App to Show News for different Couuntries(US,Egypt,Germany,France).
+ - Get various News for different Countries including Sports, Science,General and so on..
+ - Search about News do you want and you can go to the website and read the news. 
+ - Support English and Arabic languages. 
+ - Support Dark, Light mode.
+ - Check Internet connection.
+ - Responsive for Mobiles.
 
-![Group 1 (1)](https://user-images.githubusercontent.com/101422982/234333657-aa7e2f0a-77dc-4dc2-a5ae-283886b1cc8a.png)
+![Uploading Group 6.png…]()
 
-
-![Group 2](https://github.com/mohamedyasser951/NewsHour/assets/101422982/d29a143c-ae64-4cc4-a9c9-cef17ad2d136)
+![Uploading Group 5.png…]()
