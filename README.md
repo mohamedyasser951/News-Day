@@ -7,7 +7,7 @@ News Day App with two languages to get News for different Couuntries :
  - Support Dark, Light modes.
  - Check Internet connection.
  - Responsive for Mobiles.
- - 
+  
 Images from The Application :
 
 ![Uploading Group 6.png…]()
